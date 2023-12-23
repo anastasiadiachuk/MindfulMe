@@ -1,0 +1,36 @@
+﻿@model Entities.ViewModels.RegisterViewModel
+
+<link rel="stylesheet" href="~/register.css" />
+
+<h2>Register</h2>
+<form asp-action="Register" method="post" class="container">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password">Password:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConfirmPassword">Confirm Password:</label>
+        <input asp-for="ConfirmPassword" type="password" />
+        <span asp-validation-for="ConfirmPassword"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserName">User Name:</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+
+@Html.ValidationSummary()

@@ -1,0 +1,38 @@
+﻿@model List<Entities.Offer>
+
+<link rel="stylesheet" href="~/view_offers.css" />
+
+<div class="offers-container">
+    <h2>All offers from users</h2>
+
+    @if (Model.Any())
+    {
+        <table>
+            <thead>
+            <tr>
+                <th>Description</th>
+                <th>Content</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var article in Model)
+            {
+                <tr>
+                    <td>@article.Description</td>
+                    <td>@article.Content</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <div class="button-group">
+            <form asp-controller="Home" asp-action="Index" method="get">
+                <button type="submit" class="btn-back">Back</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <p class="no-offers">No offers found.</p>
+    }
+</div>

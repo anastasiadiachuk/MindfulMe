@@ -1,0 +1,14 @@
+﻿@model Entities.Article
+
+<link rel="stylesheet" href="~/read_article.css" />
+
+<div class="article-container">
+    <h2 class="article-title">@Model.Title</h2>
+    <p class="article-content">@Model.Content</p>
+
+    <div class="button-group">
+        <form asp-controller="Home" asp-action="ViewArticles" method="get">
+            <button type="submit" class="btn-back">Back</button>
+        </form>
+    </div>
+</div>

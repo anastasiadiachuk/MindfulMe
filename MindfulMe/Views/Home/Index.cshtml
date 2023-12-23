@@ -1,0 +1,124 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<link rel="stylesheet" href="~/index.css" />
+
+<div class="container">
+    <h1>MindfulMe</h1>
+    <h2>Welcome, @User.Identity.Name!</h2>
+    <div style="display: inline-flex">
+        <form id="logoutForm" asp-controller="Users" asp-action="Logout" method="post" class="centered-form">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="big-button">
+                <p class="button-description">Logout</p>
+                <p style="font-size: smaller">from this account</p>
+            </button>
+        </form>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <form asp-controller="Home" asp-action="ViewOffers" method="get">
+                <button type="submit" class="big-button">
+                    <p class="button-description">View Offers</p>
+                    <p style="font-size: smaller">from users</p>
+                </button>
+            </form>
+            <form asp-controller="Home" asp-action="AddArticle" method="get">
+                <button type="submit" class="big-button">
+                    <p class="button-description">Create Article</p>
+                    <p style="font-size: smaller">that you want</p>
+                </button>
+            </form>
+        }
+
+        <form asp-controller="Home" asp-action="ViewArticles" method="get">
+            <button type="submit" class="big-button">
+                <p class="button-description">View Articles</p>
+                <p style="font-size: smaller">all of them</p>
+            </button>
+        </form>
+
+        @if (User.IsInRole("User"))
+        {
+            <form asp-controller="Home" asp-action="AddOffer" method="get">
+                <button type="submit" class="big-button">
+                    <p class="button-description">Make an Offer</p>
+                    <p style="font-size: smaller">to make article YOU want</p>
+                </button>
+            </form>
+        }
+    </div>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                background-color: #3498db;
+                color: #fff;
+                padding: 1em;
+                text-align: center;
+            }
+
+            section {
+                max-width: 800px;
+                margin: 20px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }
+
+            h1 {
+                color: #3498db;
+            }
+
+            h2 {
+                color: #2c3e50;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 10px;
+            text-align: left;
+            }
+        </style>
+
+            <h1>MindfulMe - Enhancing Well-being and Consciousness</h1>
+
+        <section>
+            <h2>Project Description</h2>
+            <p style="text-align: left">MindfulMe is a platform dedicated to the development of mindfulness and psychological well-being. It provides users with resources for learning and practicing meditation, stress management, emotional awareness, and overall psychological improvement.</p>
+
+            <h2>Main Features</h2>
+            <ul>
+                <li>Meditation and Relaxation: Access to guided meditation sessions and relaxation exercises.</li>
+                <li>Stress Management: Tips and techniques for stress management and anxiety reduction.</li>
+                <li>Emotional Awareness: Learning to understand and manage your own emotions, as well as interacting with others.</li>
+                <li>Psychological Well-being: Resources for developing psychological resilience and self-awareness.</li>
+                <li>Support Community: Ability to connect with other users, exchange experiences, and support each other in meditation and psychological development.</li>
+            <li>Article Management: Read articles, suggest new topics, and contribute by writing articles.</li>
+            </ul>
+
+            <h2>Users of the System</h2>
+            <ul>
+                <li>Those Interested in Psychological Development: Main users seeking to improve their psychological well-being.</li>
+                <li>Educators and Instructors: Specialists providing educational materials and leading meditation and psychological training sessions.</li>
+                <li>Psychologists and Consultants: Experts offering psychological support and counseling to users.</li>
+            </ul>
+        
+            <p>MindfulMe can be a vital tool for those aiming to enhance their psychological well-being, reduce stress, and elevate levels of consciousness and emotional awareness.</p>
+        </section>
+</div>
+
+
+
+

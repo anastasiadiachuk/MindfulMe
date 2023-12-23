@@ -1,0 +1,25 @@
+﻿@model Entities.Offer
+
+<link rel="stylesheet" href="~/create_offer.css" />
+<h2 style="text-align: center">Create Offer</h2>
+<div class="offer-container" style="max-width: 425px">
+    <form method="post" class="offer-form">
+        <div class="form-group">
+            <label asp-for="Description" class="form-label">Description:</label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Content" class="form-label">Content:</label>
+            <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <button type="submit" class="btn btn-secondary">Back</button>
+    </form>
+</div>

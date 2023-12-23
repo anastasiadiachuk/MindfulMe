@@ -1,0 +1,10 @@
+﻿Добро пожаловать
+<form id="logoutForm" asp-controller="Users" asp-action="Logout" method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit">Logout</button>
+</form>
+
+@if (User.IsInRole("Admin"))
+{
+  <h1>сообщение только для админов</h1>  
+}

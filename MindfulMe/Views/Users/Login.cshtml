@@ -1,0 +1,24 @@
+﻿@model Entities.ViewModels.LoginViewModel
+
+<link rel="stylesheet" href="~/StyleSheet.css" />
+
+<h2 style="margin: 0; padding: 20px">Login</h2>
+<form asp-action="Login" method="post" class="container">
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Password">Password:</label>
+        <input asp-for="Password" type="password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+
+<p class="register-link">Not registered? <a asp-action="Register" asp-controller="Users">Register here</a>.</p>

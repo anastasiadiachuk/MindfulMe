@@ -1,0 +1,36 @@
+﻿@model List<Entities.Article>
+
+<link rel="stylesheet" href="~/view_articles.css" />
+
+<div class="articles-container">
+    <h2>All Articles</h2>
+    
+    @if (Model.Any())
+    {
+        <ul style="width: 60%; margin-left: auto; margin-right: auto">
+            @foreach (var article in Model)
+            {
+                <li style="display: flex;">
+                    <div style="width: 90%">
+                        <strong>@article.Title</strong>
+                        <p>@article.Description</p>
+                    </div>
+                    <form asp-controller="Home" asp-action="ReadArticle" method="post">
+                        @Html.Hidden("id", article.ArticleId)
+                        <button type="submit" class="btn-read">Read</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No articles found.</p>
+    }
+
+    <div class="button-group">
+        <form asp-controller="Home" asp-action="Index" method="get">
+            <button type="submit" class="btn-back">Back</button>
+        </form>
+    </div>
+</div>
